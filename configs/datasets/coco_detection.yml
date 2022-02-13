@@ -1,0 +1,37 @@
+metric: COCO
+num_classes: 4
+
+TrainDataset:
+  !COCODataSet
+    image_dir: images
+    anno_path: annotations/train.json
+    dataset_dir: dataset/coco/aluminum
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: images
+    anno_path: annotations/valid.json
+    dataset_dir: dataset/coco/aluminum
+
+TestDataset:
+  !ImageFolder
+    anno_path: dataset/coco/aluminum/annotations/valid.json
+
+
+#TrainDataset:
+#  !COCODataSet
+#    image_dir: train2017
+#    anno_path: annotations/instances_train2017.json
+#    dataset_dir: dataset/coco
+#    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+#
+#EvalDataset:
+#  !COCODataSet
+#    image_dir: val2017
+#    anno_path: annotations/instances_val2017.json
+#    dataset_dir: dataset/coco
+#
+#TestDataset:
+#  !ImageFolder
+#    anno_path: annotations/instances_val2017.json
