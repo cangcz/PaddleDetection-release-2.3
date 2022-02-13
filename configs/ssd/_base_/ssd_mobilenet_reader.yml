@@ -8,7 +8,7 @@ TrainReader:
     - RandomExpand: {fill_value: [127.5, 127.5, 127.5]}
     - RandomCrop: {allow_no_crop: Fasle}
     - RandomFlip: {}
-    - Resize: {target_size: [300, 300], keep_ratio: False, interp: 1}
+    - Resize: {target_size: [400,400], keep_ratio: False, interp: 1}
     - NormalizeBox: {}
     - PadBox: {num_max_boxes: 90}
   batch_transforms:
@@ -22,7 +22,7 @@ TrainReader:
 EvalReader:
   sample_transforms:
     - Decode: {}
-    - Resize: {target_size: [300, 300], keep_ratio: False, interp: 1}
+    - Resize: {target_size: [400,400], keep_ratio: False, interp: 1}
     - NormalizeImage: {mean: [127.5, 127.5, 127.5], std: [127.502231, 127.502231, 127.502231], is_scale: false}
     - Permute: {}
   batch_size: 1
@@ -33,7 +33,7 @@ TestReader:
     image_shape: [3, 300, 300]
   sample_transforms:
     - Decode: {}
-    - Resize: {target_size: [300, 300], keep_ratio: False, interp: 1}
+    - Resize: {target_size: [400,400], keep_ratio: False, interp: 1}
     - NormalizeImage: {mean: [127.5, 127.5, 127.5], std: [127.502231, 127.502231, 127.502231], is_scale: false}
     - Permute: {}
   batch_size: 1
